@@ -1,0 +1,67 @@
+@startuml
+' --- CONFIGURACIÓN DE TEMA OSCURO (DARK MODE / INGENIERÍA) ---
+skinparam backgroundColor #121212
+skinparam defaultFontColor #FFFFFF
+skinparam defaultFontSize 12
+
+skinparam titleFontColor #FFFFFF
+skinparam titleFontSize 14
+
+skinparam packageStyle rectangle
+skinparam packageBackgroundColor #1E1E1E
+skinparam packageBorderColor #444444
+skinparam packageFontColor #00E676
+
+skinparam componentStyle uml2
+skinparam componentBackgroundColor #2D2D2D
+skinparam componentBorderColor #888888
+skinparam componentFontColor #FFFFFF
+
+skinparam databaseBackgroundColor #2D2D2D
+skinparam databaseBorderColor #888888
+skinparam databaseFontColor #FFFFFF
+
+skinparam storageBackgroundColor #2D2D2D
+skinparam storageBorderColor #888888
+skinparam storageFontColor #FFFFFF
+
+skinparam arrowColor #00B0FF
+skinparam arrowFontColor #B0BEC5
+skinparam shadowing false
+
+title Figura 2. Arquitectura de la Solución (Flutter - Firebase - Google Maps API)
+
+package "CAPA DE PRESENTACIÓN (UI)" {
+    [Vistas y Pantallas (Flutter Views)] as Views
+    [Componentes y Widgets UI] as Widgets
+    [Módulo SIG (Google Maps SDK)] as MapsSDK
+}
+
+package "CAPA DE LÓGICA DE NEGOCIO (DOMAIN / VIEWMODEL)" {
+    [Manejador de Estado (ChangeNotifier)] as StateManager
+    [Reglas de Validación (GPS y Formularios)] as Validators
+}
+
+package "CAPA DE DATOS (DATA / REPOSITORY)" {
+    [Repositorio Cloud Firestore] as FirestoreRepo
+    [Cliente Firebase Storage] as StorageClient
+}
+
+package "SERVICIOS EN LA NUBE (SERVERLESS BACKEND)" {
+    [Firebase Authentication] as Auth
+    database "Cloud Firestore (NoSQL)" as FirestoreDB
+    storage "Firebase Storage (Multimedia)" as StorageDB
+}
+
+' Relaciones y flujo de arquitectura
+Views --> StateManager : Dispara eventos / Inputs
+MapsSDK --> StateManager : Retorna Lat/Long GPS
+StateManager --> Validators : Valida datos de reporte
+StateManager --> FirestoreRepo : Solicitud operaciones CRUD
+StateManager --> StorageClient : Envía archivo de imagen
+
+FirestoreRepo --> FirestoreDB : Protocolo HTTPS / TLS
+StorageClient --> StorageDB : Protocolo HTTPS / TLS
+StateManager --> Auth : Validación de credenciales OAuth
+
+@enduml
