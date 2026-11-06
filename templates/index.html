@@ -35,7 +35,7 @@
         .view-screen { display: none; width: 100%; height: 100vh; }
         .view-screen.active { display: flex; flex-direction: column; }
 
-        /* PANTALLAS DE ACCESO / REGISTRO CON CIUDAD PROFESIONAL */
+        /* PANTALLAS LOGIN Y REGISTRO */
         #login-screen.active, #register-screen.active {
             justify-content: center;
             align-items: center;
@@ -120,7 +120,7 @@
                         url('https://images.unsplash.com/photo-1519501025264-65ba15a82390?q=80&w=1400&auto=format&fit=crop') center center / cover;
         }
 
-        /* MENÚ LATERAL IZQUIERDO CON RELIEVE 3D */
+        /* MENÚ LATERAL IZQUIERDO */
         .sidebar-menu {
             width: 230px; 
             background: linear-gradient(180deg, rgba(5, 15, 35, 0.95) 0%, rgba(2, 6, 16, 0.97) 100%),
@@ -151,12 +151,11 @@
             box-shadow: inset 0 2px 4px rgba(255,255,255,0.3), inset 0 -2px 4px rgba(0,0,0,0.6), 0 6px 20px rgba(0, 117, 255, 0.4);
         }
 
-        /* WORKSPACE CON RELIEVE DE ALTA GAMA */
         .main-workspace {
             flex: 1; padding: 20px 25px; overflow-y: auto; display: flex; flex-direction: column; gap: 15px;
         }
 
-        .tab-content { display: none; flex-direction: column; gap: 15px; height: 100%; }
+        .tab-content { display: none; flex-direction: column; gap: 15px; }
         .tab-content.active { display: flex; }
 
         .section-header { display: flex; justify-content: space-between; align-items: center; }
@@ -185,7 +184,6 @@
             color: var(--accent-cyan); font-size: 18px; box-shadow: inset 0 2px 3px rgba(255,255,255,0.3), inset 0 -2px 3px rgba(0,0,0,0.6);
         }
 
-        /* LÍNEAS DE EMERGENCIA CON RELIEVE 3D */
         .emergency-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 5px; }
         .emergency-card {
             background: var(--card-bg); border: 2px solid var(--card-border); border-radius: 12px; padding: 14px 18px;
@@ -204,7 +202,7 @@
 
         .map-card-container {
             background: var(--card-bg); border: 2px solid var(--card-border);
-            border-radius: 16px; padding: 16px; display: flex; flex-direction: column; flex: 1; min-height: 280px;
+            border-radius: 16px; padding: 16px; display: flex; flex-direction: column;
             backdrop-filter: blur(14px); box-shadow: 0 15px 35px rgba(0,0,0,0.7), inset 0 2px 3px rgba(255,255,255,0.15), inset 0 -2px 3px rgba(0,0,0,0.8);
         }
         .map-card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
@@ -222,10 +220,9 @@
         }
         .btn-mini-map:hover { background: var(--accent-blue); }
 
-        #map { flex: 1; min-height: 220px; border-radius: 12px; border: 1.5px solid rgba(36, 72, 125, 0.8); z-index: 1; box-shadow: inset 0 2px 5px rgba(0,0,0,0.8); }
-        #map-full { flex: 1; min-height: 480px; border-radius: 12px; border: 1.5px solid rgba(36, 72, 125, 0.8); z-index: 1; box-shadow: inset 0 2px 5px rgba(0,0,0,0.8); }
+        #map { width: 100%; height: 250px; border-radius: 12px; border: 1.5px solid rgba(36, 72, 125, 0.8); z-index: 1; background: #0A1E3F; box-shadow: inset 0 2px 5px rgba(0,0,0,0.8); }
+        #map-full { width: 100%; height: 500px; border-radius: 12px; border: 1.5px solid rgba(36, 72, 125, 0.8); z-index: 1; background: #0A1E3F; box-shadow: inset 0 2px 5px rgba(0,0,0,0.8); }
 
-        /* LISTADO DE REPORTES CON RELIEVE */
         .reports-list-container {
             background: var(--card-bg); border: 2px solid var(--card-border); border-radius: 16px; padding: 25px;
             display: flex; flex-direction: column; gap: 15px; backdrop-filter: blur(14px); max-height: 520px; overflow-y: auto;
@@ -239,7 +236,6 @@
         .report-info p { font-size: 12px; color: #FFF; margin-bottom: 4px; }
         .report-info span { font-size: 10px; color: var(--text-secondary); }
 
-        /* MI INFORMACIÓN CON RELIEVE */
         .info-card-box {
             background: var(--card-bg); border: 2px solid var(--card-border);
             border-radius: 16px; padding: 25px; display: flex; flex-direction: column; gap: 20px;
@@ -254,7 +250,6 @@
         
         .info-field-label { font-size: 11px; color: var(--text-secondary); font-weight: 500; }
         .info-field-value { font-size: 14px; color: #FFF; font-weight: 600; text-shadow: 0 1px 2px rgba(0,0,0,0.5); }
-        .info-field-value.missing { color: #FFB800; font-style: italic; }
 
         .btn-update-action {
             background: linear-gradient(180deg, #0075FF 0%, #0045B8 100%); border: 1.5px solid #3391FF;
@@ -271,9 +266,23 @@
         }
         .form-actions { display: flex; gap: 10px; margin-top: 5px; }
 
-        .app-footer-tag {
-            text-align: center; font-size: 10px; color: var(--text-secondary); margin-top: auto; padding-top: 10px; opacity: 0.7;
+        /* MODALES GENERALES */
+        .custom-modal-overlay {
+            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(2, 5, 14, 0.88); backdrop-filter: blur(12px);
+            justify-content: center; align-items: center; z-index: 1000;
         }
+        .custom-modal-overlay.active { display: flex; }
+        .custom-modal-box {
+            background: var(--card-bg); border: 2px solid var(--accent-cyan);
+            border-radius: 20px; padding: 35px 30px; width: 400px; text-align: center;
+            box-shadow: 0 20px 50px rgba(0, 229, 255, 0.35);
+        }
+        .custom-modal-box.error-box { border-color: #FF3B30; box-shadow: 0 20px 50px rgba(255, 59, 48, 0.35); }
+        .custom-modal-box i { font-size: 48px; color: var(--accent-green); margin-bottom: 15px; }
+        .custom-modal-box.error-box i { color: #FF3B30; }
+        .custom-modal-box h3 { font-size: 19px; color: #FFF; margin-bottom: 8px; font-weight: 800; }
+        .custom-modal-box p { font-size: 13px; color: var(--text-secondary); margin-bottom: 22px; line-height: 1.4; }
     </style>
 </head>
 <body>
@@ -281,12 +290,9 @@
     <!-- VISTA 1: LOGIN -->
     <div id="login-screen" class="view-screen active">
         <div class="login-box">
-            <!-- LOGOTIPO ACTUALIZADO CON CARRETERA Y ESCUDO -->
             <div class="pro-shield-logo">
                 <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M60 6L14 24V62C14 88 34 110 60 116C86 110 106 88 106 62V24L60 6Z" fill="url(#grad-shield)" stroke="#FFB800" stroke-width="4" stroke-linejoin="round"/>
-                    <path d="M42 20C42 20 45 60 40 102" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" opacity="0.3"/>
-                    <path d="M78 20C78 20 75 60 80 102" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" opacity="0.3"/>
                     <path d="M38 96C48 70 55 45 57 20H63C65 45 72 70 82 96C75 99 68 101 60 101C52 101 45 99 38 96Z" fill="#0A1E3F" stroke="#00E5FF" stroke-width="2.5"/>
                     <path d="M52 20C54 45 56 70 58 98" stroke="#FFFFFF" stroke-width="2.5" stroke-dasharray="4 4" stroke-linecap="round"/>
                     <defs>
@@ -320,54 +326,43 @@
         </div>
     </div>
 
-    <!-- VISTA 1.2: VENTANA DE REGISTRO DE USUARIOS -->
+    <!-- VISTA 1.2: REGISTRO -->
     <div id="register-screen" class="view-screen">
-        <div class="login-box" style="width: 440px;">
-            <div class="pro-shield-logo">
-                <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M60 6L14 24V62C14 88 34 110 60 116C86 110 106 88 106 62V24L60 6Z" fill="url(#grad-shield2)" stroke="#FFB800" stroke-width="4" stroke-linejoin="round"/>
-                    <path d="M38 96C48 70 55 45 57 20H63C65 45 72 70 82 96C75 99 68 101 60 101C52 101 45 99 38 96Z" fill="#0A1E3F" stroke="#00E5FF" stroke-width="2.5"/>
-                    <path d="M52 20C54 45 56 70 58 98" stroke="#FFFFFF" stroke-width="2.5" stroke-dasharray="4 4" stroke-linecap="round"/>
-                    <defs>
-                        <linearGradient id="grad-shield2" x1="60" y1="6" x2="60" y2="116" gradientUnits="userSpaceOnUse">
-                            <stop stop-color="#0F3066"/>
-                            <stop offset="1" stop-color="#020815"/>
-                        </linearGradient>
-                    </defs>
-                </svg>
-            </div>
-
+        <div class="login-box">
             <h2>Registro Ciudadano</h2>
             <p>Ingrese los datos solicitados por el sistema</p>
             
             <div class="form-group">
                 <label>Nombre Completo</label>
-                <input type="text" id="reg-nombre" placeholder="">
+                <input type="text" id="reg-nombre">
             </div>
-
             <div class="form-group">
                 <label>Correo Electrónico</label>
                 <input type="email" id="reg-correo" placeholder="correo@ejemplo.com">
             </div>
-
+            <div class="form-group">
+                <label>Cédula</label>
+                <input type="text" id="reg-cedula">
+            </div>
+            <div class="form-group">
+                <label>Edad</label>
+                <input type="number" id="reg-edad">
+            </div>
             <div class="form-group">
                 <label>Contraseña</label>
                 <input type="password" id="reg-pass" placeholder="••••••••">
             </div>
-
             <div class="form-group">
                 <label>Dirección</label>
-                <input type="text" id="reg-direccion" placeholder="">
+                <input type="text" id="reg-direccion">
             </div>
-
             <div class="form-group">
                 <label>Barrio</label>
-                <input type="text" id="reg-barrio" placeholder="">
+                <input type="text" id="reg-barrio">
             </div>
-
             <div class="form-group">
                 <label>Localidad / Municipio</label>
-                <input type="text" id="reg-localidad" placeholder="">
+                <input type="text" id="reg-localidad">
             </div>
 
             <button class="btn-submit" onclick="guardarNuevoRegistro()">Completar Registro</button>
@@ -378,9 +373,28 @@
         </div>
     </div>
 
+    <!-- MODAL ÉXITO -->
+    <div id="modal-exito" class="custom-modal-overlay">
+        <div class="custom-modal-box">
+            <i class="fa-solid fa-circle-check"></i>
+            <h3>¡Registro Exitoso!</h3>
+            <p>Su usuario ha sido registrado correctamente. Ya puede iniciar sesión.</p>
+            <button class="btn-submit" onclick="aceptarRegistroYVolverLogin()">Ir a Iniciar Sesión</button>
+        </div>
+    </div>
+
+    <!-- MODAL ERROR -->
+    <div id="modal-error" class="custom-modal-overlay">
+        <div class="custom-modal-box error-box">
+            <i class="fa-solid fa-shield-xmark"></i>
+            <h3>Aviso del Sistema</h3>
+            <p id="txt-error-mensaje">Verifique los datos ingresados.</p>
+            <button class="btn-submit" style="background:linear-gradient(180deg, #FF3B30 0%, #B3261E 100%); border-color:#FF6961;" onclick="cerrarModalError()">Aceptar</button>
+        </div>
+    </div>
+
     <!-- VISTA 2: APLICATIVO PRINCIPAL -->
     <div id="main-screen" class="view-screen">
-        
         <header class="app-header">
             <div class="header-brand">
                 <div class="header-brand-icon">
@@ -399,8 +413,6 @@
         </header>
 
         <div class="app-layout">
-            
-            <!-- MENÚ LATERAL CON RELIEVE 3D -->
             <nav class="sidebar-menu">
                 <div class="menu-category">Menú Principal</div>
                 <div class="menu-items">
@@ -413,7 +425,6 @@
             </nav>
 
             <main class="main-workspace">
-                
                 <!-- PESTAÑA INICIO -->
                 <div id="tab-inicio" class="tab-content active">
                     <div class="section-header">
@@ -450,7 +461,6 @@
                         </div>
                     </div>
 
-                    <!-- LÍNEAS DE TRÁNSITO Y POLICÍA -->
                     <div class="emergency-grid">
                         <div class="emergency-card">
                             <div class="emergency-info">
@@ -475,17 +485,16 @@
                                 <p>Visualización geográfica interactiva integrada.</p>
                             </div>
                             <div class="map-buttons-group">
-                                <button class="btn-mini-map" onclick="cambiarCapaMapa('standard', 'map')"><i class="fa-solid fa-map"></i> Google Estándar</button>
-                                <button class="btn-mini-map" onclick="cambiarCapaMapa('satellite', 'map')"><i class="fa-solid fa-satellite"></i> Google Satélite</button>
+                                <button class="btn-mini-map" onclick="cambiarCapaMapa('standard', 'map')"><i class="fa-solid fa-map"></i> Estándar</button>
+                                <button class="btn-mini-map" onclick="cambiarCapaMapa('satellite', 'map')"><i class="fa-solid fa-satellite"></i> Satélite</button>
                                 <button class="btn-mini-map" onclick="actualizarGPS()"><i class="fa-solid fa-location-arrow"></i> Mi GPS</button>
                             </div>
                         </div>
-
                         <div id="map"></div>
                     </div>
                 </div>
 
-                <!-- PESTAÑA MAPA EXCLUSIVA -->
+                <!-- PESTAÑA MAPA -->
                 <div id="tab-mapa" class="tab-content">
                     <div class="section-header">
                         <div>
@@ -493,40 +502,34 @@
                             <p>Visualización cartográfica en tiempo real.</p>
                         </div>
                         <div class="map-buttons-group">
-                            <button class="btn-mini-map" onclick="cambiarCapaMapa('standard', 'map-full')"><i class="fa-solid fa-map"></i> Google Estándar</button>
-                            <button class="btn-mini-map" onclick="cambiarCapaMapa('satellite', 'map-full')"><i class="fa-solid fa-satellite"></i> Google Satélite</button>
+                            <button class="btn-mini-map" onclick="cambiarCapaMapa('standard', 'map-full')"><i class="fa-solid fa-map"></i> Estándar</button>
+                            <button class="btn-mini-map" onclick="cambiarCapaMapa('satellite', 'map-full')"><i class="fa-solid fa-satellite"></i> Satélite</button>
                             <button class="btn-mini-map" onclick="actualizarGPS()"><i class="fa-solid fa-location-arrow"></i> Mi GPS</button>
                         </div>
                     </div>
-
-                    <div class="map-card-container" style="flex: 1;">
+                    <div class="map-card-container">
                         <div id="map-full"></div>
                     </div>
                 </div>
 
-                <!-- PESTAÑA LISTADO DE REPORTES -->
+                <!-- PESTAÑA REPORTES -->
                 <div id="tab-reportes" class="tab-content">
                     <div class="section-header">
                         <div>
                             <h2>Listado de Reportes y PQR</h2>
                             <p>Historial de incidentes y solicitudes radicadas en el sistema.</p>
                         </div>
-                        <button class="btn-update-action" onclick="verReportes()"><i class="fa-solid fa-plus"></i> Nuevo Reporte</button>
+                        <button class="btn-update-action" onclick="crearNuevoReporte()"><i class="fa-solid fa-plus"></i> + Nuevo Reporte</button>
                     </div>
-
-                    <div class="reports-list-container" id="lista-reportes-box">
-                        <div style="text-align: center; color: var(--text-secondary); padding: 30px;">
+                    <div class="reports-list-container" id="box-lista-reportes">
+                        <div style="text-align: center; color: var(--text-secondary); padding: 40px;">
                             <i class="fa-solid fa-folder-open" style="font-size: 32px; margin-bottom: 10px; color: var(--accent-cyan);"></i>
-                            <p>No hay reportes registrados en la sesión actual.</p>
+                            <p>No hay reportes registrados o en base de datos local actual.</p>
                         </div>
-                    </div>
-
-                    <div class="app-footer-tag">
-                        SEGURIDAD VIAL - SISTEMA DE GESTIÓN CIUDADANA - TRL 5
                     </div>
                 </div>
 
-                <!-- PESTAÑA MI INFORMACIÓN Y ACTUALIZACIÓN -->
+                <!-- PESTAÑA MI INFORMACIÓN -->
                 <div id="tab-informacion" class="tab-content">
                     <div class="section-header">
                         <div>
@@ -537,8 +540,10 @@
                     </div>
 
                     <div id="form-actualizar" class="update-form-container">
-                        <h4 style="color:var(--accent-cyan); font-size:13px; font-weight:700;"><i class="fa-solid fa-edit"></i> Completar o Modificar Información</h4>
+                        <h4 style="color:var(--accent-cyan); font-size:13px; font-weight:700;"><i class="fa-solid fa-edit"></i> Modificar Mis Datos</h4>
                         <input type="text" id="up-nombre" placeholder="Nombre completo">
+                        <input type="text" id="up-cedula" placeholder="Cédula">
+                        <input type="number" id="up-edad" placeholder="Edad">
                         <input type="text" id="up-direccion" placeholder="Dirección">
                         <input type="text" id="up-barrio" placeholder="Barrio">
                         <input type="text" id="up-localidad" placeholder="Localidad / Municipio">
@@ -549,85 +554,234 @@
                     </div>
 
                     <div class="info-card-box">
-                        <h3>Datos personales <span id="lbl-estado-perfil" style="font-size:11px; color:#FFB800;"></span></h3>
-
+                        <h3>Datos personales</h3>
                         <div class="info-field-row">
                             <span class="info-field-label">Nombre completo</span>
-                            <span class="info-field-value" id="val-nombre">Por favor complete sus datos</span>
+                            <span class="info-field-value" id="info-val-nombre">-</span>
                         </div>
-
                         <div class="info-field-row">
                             <span class="info-field-label">Correo electrónico</span>
-                            <span class="info-field-value" id="val-correo">usuario@ejemplo.com</span>
+                            <span class="info-field-value" id="info-val-correo">-</span>
                         </div>
-
+                        <div class="info-field-row">
+                            <span class="info-field-label">Cédula</span>
+                            <span class="info-field-value" id="info-val-cedula">-</span>
+                        </div>
+                        <div class="info-field-row">
+                            <span class="info-field-label">Edad</span>
+                            <span class="info-field-value" id="info-val-edad">-</span>
+                        </div>
                         <div class="info-field-row">
                             <span class="info-field-label">Dirección</span>
-                            <span class="info-field-value" id="val-direccion">Por favor complete sus datos</span>
+                            <span class="info-field-value" id="info-val-direccion">-</span>
                         </div>
-
                         <div class="info-field-row">
                             <span class="info-field-label">Barrio</span>
-                            <span class="info-field-value" id="val-barrio">Por favor complete sus datos</span>
+                            <span class="info-field-value" id="info-val-barrio">-</span>
                         </div>
-
                         <div class="info-field-row">
                             <span class="info-field-label">Localidad / Municipio</span>
-                            <span class="info-field-value" id="val-localidad">Por favor complete sus datos</span>
+                            <span class="info-field-value" id="info-val-localidad">-</span>
                         </div>
                     </div>
-
-                    <div class="app-footer-tag">
-                        SEGURIDAD VIAL - SISTEMA DE GESTIÓN CIUDADANA - TRL 5
-                    </div>
                 </div>
-
             </main>
         </div>
     </div>
 
-    <!-- LEAFLET MAP & SCRIPTS -->
+    <!-- Leaflet JS -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script>
-        let map, mapFull, marker, markerFull;
-        let capaActual = 'standard';
-        let latUsr = 4.5815;
-        let lonUsr = -74.2178;
+        let usuarioSesion = null;
+        let mapInstance = null;
+        let mapFullInstance = null;
+        let markerInicio = null;
+        let markerFull = null;
+        let watchId = null;
+        let currentCoords = [4.5709, -74.2172]; // Soacha por defecto
 
-        const capasGoogle = {
-            standard: () => L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', { maxZoom: 20, subdomains: ['mt0','mt1','mt2','mt3'] }),
-            satellite: () => L.tileLayer('https://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', { maxZoom: 20, subdomains: ['mt0','mt1','mt2','mt3'] })
-        };
+        function mostrarModalError(mensaje) {
+            document.getElementById('txt-error-mensaje').innerText = mensaje;
+            document.getElementById('modal-error').classList.add('active');
+        }
 
-        function initMaps() {
-            if (!map) {
-                map = L.map('map', { zoomControl: true }).setView([latUsr, lonUsr], 14);
-                capasGoogle.standard().addTo(map);
-                marker = L.marker([latUsr, lonUsr]).addTo(map).bindPopup('<b>Ubicación Actual</b>').openPopup();
+        function cerrarModalError() {
+            document.getElementById('modal-error').classList.remove('active');
+        }
+
+        function mostrarAyudaModal() {
+            alert("Sistema de Seguridad Vial - TRL 5\nGestión ciudadana de incidentes, reportes y mapas interactivos en tiempo real.");
+        }
+
+        async function iniciarSesion() {
+            const correo = document.getElementById('txt-correo').value.trim();
+            const contrasena = document.getElementById('txt-pass').value.trim();
+
+            if (!correo || !contrasena) {
+                mostrarModalError("Por favor ingrese correo y contraseña.");
+                return;
             }
-            if (!mapFull) {
-                mapFull = L.map('map-full', { zoomControl: true }).setView([latUsr, lonUsr], 14);
-                capasGoogle.standard().addTo(mapFull);
-                markerFull = L.marker([latUsr, lonUsr]).addTo(mapFull).bindPopup('<b>Ubicación Actual</b>').openPopup();
+
+            try {
+                if (window.pywebview && window.pywebview.api) {
+                    const res = await window.pywebview.api.login(correo, contrasena);
+                    if (res && res.success) {
+                        usuarioSesion = res;
+                        cargarDatosUsuario();
+                        entrarAlSistema();
+                    } else {
+                        mostrarModalError(res ? res.message : "Credenciales incorrectas.");
+                    }
+                } else {
+                    usuarioSesion = { nombre: "Usuario Demo", correo: correo, cedula: "10000000", edad: 28, direccion: "Calle 10", barrio: "Centro", localidad: "Soacha" };
+                    cargarDatosUsuario();
+                    entrarAlSistema();
+                }
+            } catch (err) {
+                mostrarModalError("Error de comunicación con el backend.");
             }
         }
 
-        function cambiarCapaMapa(tipo, contenedorId) {
-            capaActual = tipo;
-            let targetMap = contenedorId === 'map' ? map : mapFull;
-            if (!targetMap) return;
+        async function guardarNuevoRegistro() {
+            const nombre = document.getElementById('reg-nombre').value.trim();
+            const correo = document.getElementById('reg-correo').value.trim();
+            const cedula = document.getElementById('reg-cedula').value.trim();
+            const edad = document.getElementById('reg-edad').value.trim();
+            const contrasena = document.getElementById('reg-pass').value.trim();
+            const direccion = document.getElementById('reg-direccion').value.trim();
+            const barrio = document.getElementById('reg-barrio').value.trim();
+            const localidad = document.getElementById('reg-localidad').value.trim();
 
-            targetMap.eachLayer((layer) => {
-                if (layer instanceof L.TileLayer) {
-                    targetMap.removeLayer(layer);
-                }
-            });
-
-            if (tipo === 'satellite') {
-                capasGoogle.satellite().addTo(targetMap);
-            } else {
-                capasGoogle.standard().addTo(targetMap);
+            if (!correo || !contrasena || !cedula) {
+                mostrarModalError("El Correo, la Cédula y la Contraseña son obligatorios.");
+                return;
             }
+
+            try {
+                if (window.pywebview && window.pywebview.api) {
+                    const res = await window.pywebview.api.registrar_usuario(nombre, correo, cedula, edad, contrasena, direccion, barrio, localidad);
+                    if (res && res.success) {
+                        document.getElementById('modal-exito').classList.add('active');
+                    } else {
+                        mostrarModalError(res ? res.message : "Error al registrar.");
+                    }
+                } else {
+                    document.getElementById('modal-exito').classList.add('active');
+                }
+            } catch (err) {
+                mostrarModalError("Error al procesar el registro.");
+            }
+        }
+
+        function aceptarRegistroYVolverLogin() {
+            document.getElementById('modal-exito').classList.remove('active');
+            volverLogin();
+        }
+
+        function toggleFormularioActualizacion() {
+            const form = document.getElementById('form-actualizar');
+            form.classList.toggle('active');
+            if (form.classList.contains('active') && usuarioSesion) {
+                document.getElementById('up-nombre').value = usuarioSesion.nombre || '';
+                document.getElementById('up-cedula').value = usuarioSesion.cedula || usuarioSesion.documento || '';
+                document.getElementById('up-edad').value = usuarioSesion.edad || '';
+                document.getElementById('up-direccion').value = usuarioSesion.direccion || '';
+                document.getElementById('up-barrio').value = usuarioSesion.barrio || '';
+                document.getElementById('up-localidad').value = usuarioSesion.localidad || '';
+            }
+        }
+
+        async function guardarActualizacion() {
+            if (!usuarioSesion) return;
+            const nombre = document.getElementById('up-nombre').value.trim();
+            const cedula = document.getElementById('up-cedula').value.trim();
+            const edad = document.getElementById('up-edad').value.trim();
+            const direccion = document.getElementById('up-direccion').value.trim();
+            const barrio = document.getElementById('up-barrio').value.trim();
+            const localidad = document.getElementById('up-localidad').value.trim();
+
+            try {
+                if (window.pywebview && window.pywebview.api) {
+                    const res = await window.pywebview.api.actualizar_usuario(usuarioSesion.correo, nombre, cedula, edad, direccion, barrio, localidad);
+                    if (res && res.success) {
+                        usuarioSesion = res.usuario;
+                        cargarDatosUsuario();
+                        toggleFormularioActualizacion();
+                        alert("¡Datos actualizados correctamente!");
+                    } else {
+                        mostrarModalError(res ? res.message : "No se pudieron actualizar los datos en la base de datos.");
+                    }
+                } else {
+                    usuarioSesion.nombre = nombre;
+                    usuarioSesion.cedula = cedula;
+                    usuarioSesion.edad = edad;
+                    usuarioSesion.direccion = direccion;
+                    usuarioSesion.barrio = barrio;
+                    usuarioSesion.localidad = localidad;
+                    cargarDatosUsuario();
+                    toggleFormularioActualizacion();
+                    alert("¡Datos actualizados localmente!");
+                }
+            } catch (err) {
+                mostrarModalError("Error al actualizar la información.");
+            }
+        }
+
+        async function crearNuevoReporte() {
+            const desc = prompt("Describa el incidente o PQR a radicar:");
+            if (desc) {
+                if (window.pywebview && window.pywebview.api) {
+                    const res = await window.pywebview.api.radicar_pqr(desc, currentCoords[0], currentCoords[1]);
+                    if (res && res.success) {
+                        alert("Reporte radicado con éxito. Código: " + res.pqr);
+                        cargarReportes();
+                    }
+                } else {
+                    alert("Reporte radicado con éxito.");
+                }
+            }
+        }
+
+        async function cargarReportes() {
+            if (window.pywebview && window.pywebview.api) {
+                const reportes = await window.pywebview.api.obtener_historial();
+                const container = document.getElementById('box-lista-reportes');
+                document.getElementById('lbl-cant-reportes').innerText = reportes ? reportes.length : 0;
+                if (reportes && reportes.length > 0) {
+                    container.innerHTML = reportes.map(r => `
+                        <div class="report-item">
+                            <div class="report-info">
+                                <h4>${r.descripcion}</h4>
+                                <p>Coordenadas: (${r.lat}, ${r.lon})</p>
+                                <span>Fecha: ${r.fecha}</span>
+                            </div>
+                        </div>
+                    `).join('');
+                }
+            }
+        }
+
+        function entrarAlSistema() {
+            document.getElementById('login-screen').classList.remove('active');
+            document.getElementById('register-screen').classList.remove('active');
+            document.getElementById('main-screen').classList.add('active');
+            
+            setTimeout(() => {
+                inicializarMapas();
+                iniciarGeolocalizacionReal();
+                cargarReportes();
+            }, 300);
+        }
+
+        function cargarDatosUsuario() {
+            if (!usuarioSesion) return;
+            document.getElementById('info-val-nombre').innerText = usuarioSesion.nombre || 'No registrado';
+            document.getElementById('info-val-correo').innerText = usuarioSesion.correo || 'No registrado';
+            document.getElementById('info-val-cedula').innerText = usuarioSesion.cedula || usuarioSesion.documento || 'No registrada';
+            document.getElementById('info-val-edad').innerText = usuarioSesion.edad || 'No registrada';
+            document.getElementById('info-val-direccion').innerText = usuarioSesion.direccion || 'No registrada';
+            document.getElementById('info-val-barrio').innerText = usuarioSesion.barrio || 'No registrado';
+            document.getElementById('info-val-localidad').innerText = usuarioSesion.localidad || 'No registrada';
         }
 
         function mostrarVentanaRegistro() {
@@ -640,238 +794,106 @@
             document.getElementById('login-screen').classList.add('active');
         }
 
-        function guardarNuevoRegistro() {
-            let nombre = document.getElementById('reg-nombre').value.trim();
-            let correo = document.getElementById('reg-correo').value.trim();
-            let pass = document.getElementById('reg-pass').value.trim();
-            let dir = document.getElementById('reg-direccion').value.trim();
-            let barrio = document.getElementById('reg-barrio').value.trim();
-            let loc = document.getElementById('reg-localidad').value.trim();
-
-            if (!nombre || !correo || !pass || !dir || !barrio || !loc) {
-                alert("Por favor complete todos los campos para finalizar su registro.");
-                return;
-            }
-
-            actualizarCamposUI(nombre, dir, barrio, loc);
-            document.getElementById('val-correo').innerText = correo;
-
-            alert("¡Registro de ciudadano completado con éxito!");
-            document.getElementById('txt-correo').value = correo;
-            volverLogin();
-        }
-
-        async function iniciarSesion() {
-            let correo = document.getElementById('txt-correo').value.trim();
-            let pass = document.getElementById('txt-pass').value.trim();
-
-            if (correo !== '') {
-                document.getElementById('val-correo').innerText = correo;
-            }
-
-            document.getElementById('login-screen').classList.remove('active');
-            document.getElementById('main-screen').classList.add('active');
-
-            let incompleto = false;
-
-            try {
-                if (window.pywebview && window.pywebview.api) {
-                    let res = await window.pywebview.api.login(correo, pass);
-                    if (res && res.success) {
-                        actualizarCamposUI(res.nombre, res.direccion, res.barrio, res.localidad);
-                    } else {
-                        incompleto = true;
-                    }
-                } else {
-                    incompleto = true;
-                }
-            } catch (e) {
-                incompleto = true;
-            }
-
-            if (incompleto) {
-                let nom = document.getElementById('val-nombre').innerText;
-                if (!nom || nom === 'Por favor complete sus datos' || nom.includes('undefined')) {
-                    document.getElementById('lbl-estado-perfil').innerText = '⚠️ ¡Perfil incompleto! Por favor actualice sus datos.';
-                    marcarIncompletos();
-                }
-            }
+        function cambiarPestana(pestanaId, elemento) {
+            document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+            document.querySelectorAll('.menu-link').forEach(link => link.classList.remove('active'));
             
-            actualizarConteoReportes();
+            const tabObjetivo = document.getElementById('tab-' + pestanaId);
+            if (tabObjetivo) tabObjetivo.classList.add('active');
+            if (elemento) elemento.classList.add('active');
 
             setTimeout(() => {
-                initMaps();
-                map.invalidateSize();
+                if (mapInstance) mapInstance.invalidateSize();
+                if (mapFullInstance) mapFullInstance.invalidateSize();
             }, 150);
         }
 
-        function mostrarAyudaModal() {
-            alert("ℹ️ Sistema de Seguridad Vial (TRL 5)\n\n• Módulo de Gestión Ciudadana y Radicación de PQR Viales.\n• Visualización cartográfica interactiva con capas de Google Estándar y Satélite.\n• Líneas de emergencia directas (Tránsito y Policía).\n• Soporte técnico: soporte@seguridadvial.gov.co");
-        }
-
-        function marcarIncompletos() {
-            ['val-nombre', 'val-direccion', 'val-barrio', 'val-localidad'].forEach(id => {
-                let el = document.getElementById(id);
-                if (!el.innerText || el.innerText === 'Por favor complete sus datos' || el.innerText.includes('undefined')) {
-                    el.innerText = '⚠️ Falta completar información';
-                    el.classList.add('missing');
-                }
-            });
-        }
-
-        function actualizarCamposUI(nom, dir, bar, loc) {
-            let n = (nom && !nom.includes('undefined')) ? nom : 'Por favor complete sus datos';
-            let d = (dir && !dir.includes('undefined')) ? dir : 'Por favor complete sus datos';
-            let b = (bar && !bar.includes('undefined')) ? bar : 'Por favor complete sus datos';
-            let l = (loc && !loc.includes('undefined')) ? loc : 'Por favor complete sus datos';
-
-            document.getElementById('val-nombre').innerText = n;
-            document.getElementById('val-direccion').innerText = d;
-            document.getElementById('val-barrio').innerText = b;
-            document.getElementById('val-localidad').innerText = l;
-
-            if (n.includes('Por favor') || d.includes('Por favor')) {
-                document.getElementById('lbl-estado-perfil').innerText = '⚠️ ¡Perfil incompleto!';
-                marcarIncompletos();
-            } else {
-                document.getElementById('lbl-estado-perfil').innerText = '✅ Perfil completo';
-            }
-        }
-
-        function toggleFormularioActualizacion() {
-            let frm = document.getElementById('form-actualizar');
-            frm.classList.toggle('active');
-            if (frm.classList.contains('active')) {
-                let n = document.getElementById('val-nombre').innerText;
-                let d = document.getElementById('val-direccion').innerText;
-                let b = document.getElementById('val-barrio').innerText;
-                let l = document.getElementById('val-localidad').innerText;
-
-                document.getElementById('up-nombre').value = n.includes('Falta') || n.includes('Por favor') ? '' : n;
-                document.getElementById('up-direccion').value = d.includes('Falta') || d.includes('Por favor') ? '' : d;
-                document.getElementById('up-barrio').value = b.includes('Falta') || b.includes('Por favor') ? '' : b;
-                document.getElementById('up-localidad').value = l.includes('Falta') || l.includes('Por favor') ? '' : l;
-            }
-        }
-
-        function guardarActualizacion() {
-            let n = document.getElementById('up-nombre').value.trim();
-            let d = document.getElementById('up-direccion').value.trim();
-            let b = document.getElementById('up-barrio').value.trim();
-            let l = document.getElementById('up-localidad').value.trim();
-
-            if (!n || !d || !b || !l) {
-                alert("Por favor complete todos los campos obligatorios para actualizar su información.");
-                return;
-            }
-
-            actualizarCamposUI(n, d, b, l);
-            document.getElementById('form-actualizar').classList.remove('active');
-            alert("¡Información actualizada con éxito!");
-        }
-
         function cerrarSesion() {
+            if (watchId !== null) navigator.geolocation.clearWatch(watchId);
+            usuarioSesion = null;
             document.getElementById('main-screen').classList.remove('active');
             document.getElementById('login-screen').classList.add('active');
             document.getElementById('txt-correo').value = '';
             document.getElementById('txt-pass').value = '';
         }
 
-        function cambiarPestana(tabName, element) {
-            document.querySelectorAll('.menu-link').forEach(btn => btn.classList.remove('active'));
-            if (element) {
-                element.classList.add('active');
-            } else if (tabName === 'reportes') {
-                document.querySelectorAll('.menu-link').forEach(btn => {
-                    if (btn.innerText.includes('Reportes')) btn.classList.add('active');
-                });
-            } else if (tabName === 'inicio') {
-                document.querySelectorAll('.menu-link').forEach(btn => {
-                    if (btn.innerText.includes('Inicio')) btn.classList.add('active');
-                });
+        function inicializarMapas() {
+            try {
+                if (!mapInstance && document.getElementById('map')) {
+                    mapInstance = L.map('map').setView(currentCoords, 14);
+                    L.tileLayer('https://{s}.tile.openstreetmap.de/tiles/osmde/{z}/{x}/{y}.png', { maxZoom: 19, attribution: '' }).addTo(mapInstance);
+                    markerInicio = L.marker(currentCoords).addTo(mapInstance).bindPopup('Ubicación Actual (GPS)').openPopup();
+                }
+                if (!mapFullInstance && document.getElementById('map-full')) {
+                    mapFullInstance = L.map('map-full').setView(currentCoords, 14);
+                    L.tileLayer('https://{s}.tile.openstreetmap.de/tiles/osmde/{z}/{x}/{y}.png', { maxZoom: 19, attribution: '' }).addTo(mapFullInstance);
+                    markerFull = L.marker(currentCoords).addTo(mapFullInstance).bindPopup('Ubicación Actual (GPS)').openPopup();
+                }
+            } catch (e) {
+                console.error("Error al cargar Leaflet:", e);
             }
+        }
 
-            document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
-            document.getElementById('tab-' + tabName).classList.add('active');
+        function iniciarGeolocalizacionReal() {
+            if ("geolocation" in navigator) {
+                navigator.geolocation.getCurrentPosition(
+                    (position) => {
+                        const lat = position.coords.latitude;
+                        const lon = position.coords.longitude;
+                        currentCoords = [lat, lon];
+                        actualizarPosicionMapas(lat, lon);
+                    },
+                    (err) => { console.log("Usando ubicación por defecto."); },
+                    { enableHighAccuracy: true, timeout: 5000 }
+                );
 
-            setTimeout(() => {
-                if (tabName === 'inicio' && map) map.invalidateSize();
-                if (tabName === 'mapa' && mapFull) mapFull.invalidateSize();
-            }, 150);
+                watchId = navigator.geolocation.watchPosition(
+                    (position) => {
+                        const lat = position.coords.latitude;
+                        const lon = position.coords.longitude;
+                        currentCoords = [lat, lon];
+                        actualizarPosicionMapas(lat, lon);
+                        document.getElementById('lbl-ubi-sub').innerText = `Lat: ${lat.toFixed(4)}, Lon: ${lon.toFixed(4)}`;
+                    },
+                    (error) => { console.warn("GPS en segundo plano no disponible."); },
+                    { enableHighAccuracy: true, maximumAge: 5000, timeout: 10000 }
+                );
+            }
+        }
 
-            if (tabName === 'reportes') {
-                cargarListadoReportes();
+        function actualizarPosicionMapas(lat, lon) {
+            const nuevaUbicacion = [lat, lon];
+            if (mapInstance) {
+                mapInstance.setView(nuevaUbicacion, 15);
+                if (markerInicio) markerInicio.setLatLng(nuevaUbicacion);
+            }
+            if (mapFullInstance) {
+                mapFullInstance.setView(nuevaUbicacion, 15);
+                if (markerFull) markerFull.setLatLng(nuevaUbicacion);
             }
         }
 
         function actualizarGPS() {
-            latUsr += (Math.random() - 0.5) * 0.002;
-            lonUsr += (Math.random() - 0.5) * 0.002;
-            if (map) { map.setView([latUsr, lonUsr], 15); marker.setLatLng([latUsr, lonUsr]); }
-            if (mapFull) { mapFull.setView([latUsr, lonUsr], 15); markerFull.setLatLng([latUsr, lonUsr]); }
-            alert(`GPS Sincronizado:\nLatitud: ${latUsr.toFixed(4)}, Longitud: ${lonUsr.toFixed(4)}`);
-        }
-
-        async function verReportes() {
-            let desc = prompt("🚨 Radicar incidente o PQR Vial:\nIngrese el detalle:");
-            if (desc) {
-                try {
-                    if (window.pywebview && window.pywebview.api) {
-                        let res = await window.pywebview.api.radicar_pqr(desc, latUsr, lonUsr);
-                        if (res && res.success) {
-                            alert(`Reporte generado con éxito.\nRadicado No: ${res.pqr}`);
-                            actualizarConteoReportes();
-                            cargarListadoReportes();
-                        }
-                    } else {
-                        alert("Reporte radicado con éxito (Modo local).");
-                    }
-                } catch(e) {
-                    alert("Reporte radicado con éxito.");
-                }
+            if (mapInstance) {
+                mapInstance.setView(currentCoords, 16);
+                if (markerInicio) markerInicio.openPopup();
             }
+            if (mapFullInstance) {
+                mapFullInstance.setView(currentCoords, 16);
+                if (markerFull) markerFull.openPopup();
+            }
+            alert("Mapa centrado en tu posición GPS en tiempo real.");
         }
 
-        async function actualizarConteoReportes() {
-            try {
-                if (window.pywebview && window.pywebview.api) {
-                    let historial = await window.pywebview.api.obtener_historial();
-                    if (historial) {
-                        document.getElementById('lbl-cant-reportes').innerText = historial.length;
-                    }
-                }
-            } catch(e){}
-        }
-
-        async function cargarListadoReportes() {
-            let contenedor = document.getElementById('lista-reportes-box');
-            try {
-                if (window.pywebview && window.pywebview.api) {
-                    let historial = await window.pywebview.api.obtener_historial();
-                    if (historial && historial.length > 0) {
-                        contenedor.innerHTML = historial.map(r => `
-                            <div class="report-item">
-                                <div class="report-info">
-                                    <h4>📌 Radicado: ${r.codigo}</h4>
-                                    <p>${r.descripcion}</p>
-                                    <span>Registrado el: ${r.fecha}</span>
-                                </div>
-                                <div style="color: var(--accent-green); font-size: 13px; font-weight: 600;">
-                                    <i class="fa-solid fa-circle-check"></i> Activo
-                                </div>
-                            </div>
-                        `).join('');
-                        return;
-                    }
-                }
-            } catch(e) {}
-
-            contenedor.innerHTML = `
-                <div style="text-align: center; color: var(--text-secondary); padding: 30px;">
-                    <i class="fa-solid fa-folder-open" style="font-size: 32px; margin-bottom: 10px; color: var(--accent-cyan);"></i>
-                    <p>No hay reportes registrados o en base de datos local actual.</p>
-                </div>
-            `;
+        function cambiarCapaMapa(tipo, mapaId) {
+            let targetMap = (mapaId === 'map') ? mapInstance : mapFullInstance;
+            if (!targetMap) return;
+            targetMap.eachLayer(layer => { if (layer instanceof L.TileLayer) targetMap.removeLayer(layer); });
+            if (tipo === 'standard') {
+                L.tileLayer('https://{s}.tile.openstreetmap.de/tiles/osmde/{z}/{x}/{y}.png', { maxZoom: 19, attribution: '' }).addTo(targetMap);
+            } else if (tipo === 'satellite') {
+                L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', { maxZoom: 19, attribution: '' }).addTo(targetMap);
+            }
         }
     </script>
 </body>

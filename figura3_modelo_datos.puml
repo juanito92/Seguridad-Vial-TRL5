@@ -1,0 +1,54 @@
+@startuml
+' --- CONFIGURACIÓN DE TEMA OSCURO (DARK MODE / INGENIERÍA) ---
+skinparam backgroundColor #121212
+skinparam defaultFontColor #FFFFFF
+skinparam defaultFontSize 12
+
+skinparam titleFontColor #FFFFFF
+skinparam titleFontSize 14
+
+skinparam classBackgroundColor #2D2D2D
+skinparam classBorderColor #888888
+skinparam classFontColor #FFFFFF
+skinparam classAttributeIconSize 0
+
+skinparam arrowColor #00B0FF
+skinparam arrowFontColor #B0BEC5
+skinparam shadowing false
+
+title Figura 3. Diagrama de Modelo de Datos NoSQL en Firebase Firestore
+
+class "Colección: usuarios" as UsersCollection {
+    + uid: String {PK - Document ID}
+    --
+    + correo: String
+    + nombreCompleto: String
+    + rolCiudadano: String
+    + fechaRegistro: Timestamp
+}
+
+class "Colección: categorias" as CategoriesCollection {
+    + categoriaId: String {PK - Document ID}
+    --
+    + nombreCategoria: String
+    + descripcion: String
+    + iconoReferencia: String
+}
+
+class "Colección: reportes" as ReportsCollection {
+    + reportId: String {PK - Document ID}
+    --
+    + usuarioId: String {FK / Referencia}
+    + categoriaId: String {FK / Referencia}
+    + descripcionIncidente: String
+    + latitudGPS: Number
+    + longitudGPS: Number
+    + fotografiaUrl: String
+    + estadoReporte: String (Pendiente/Revisión)
+    + fechaCreacion: Timestamp
+}
+
+UsersCollection "1" --> "0..*" ReportsCollection : "registra (autor)"
+CategoriesCollection "1" --> "0..*" ReportsCollection : "clasifica (tipo)"
+
+@enduml
